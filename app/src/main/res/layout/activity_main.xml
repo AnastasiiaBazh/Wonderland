@@ -41,7 +41,8 @@
         android:textStyle="bold"
         android:textSize="18sp"
         android:textColor="@color/onAccent"
-        />
+        android:drawablePadding="10dp"
+        app:drawableLeftCompat="@drawable/icons8_solar_cross_2" />
 
     <TextView
         android:id="@+id/optionsButton"
@@ -58,6 +59,7 @@
         android:textSize="16sp"
         android:textColor="@color/text"
         android:layout_centerVertical="true"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:drawableLeftCompat="@drawable/icons8_edit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
