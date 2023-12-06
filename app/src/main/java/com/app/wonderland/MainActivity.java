@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView buttonGenerate;
     private TextView optionsButton;
     private TextView result;
-    private String[] someOptions = {"Ахуительная рулетка!!","Рулетка богов просто!","Ультра нано S3000 гипер рулетка!","Мама сказала, что ей нравится"};
+    private final String[] someOptions = {"Ахуительная рулетка!!", "Рулетка богов просто!", "Ультра нано S3000 гипер рулетка!", "Мама сказала, что ей нравится"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         return someOptions[i];
     }
 
-    public void openNewActivity(){
+    public void openNewActivity() {
         Intent intent = new Intent(this, OptionsActivity.class);
         startActivity(intent);
     }

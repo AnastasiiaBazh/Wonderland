@@ -27,7 +27,7 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.text.setText(items.get(position).option);
+        holder.text.setText(items.get(position).getOption());
     }
 
     @Override

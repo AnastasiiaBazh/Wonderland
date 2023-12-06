@@ -39,7 +39,7 @@
         android:textColor="@color/onAccent"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:drawablStartCompat="@drawable/icons8_solar_cross_2"
+        app:drawableLeftCompat="@drawable/icons8_solar_cross_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
