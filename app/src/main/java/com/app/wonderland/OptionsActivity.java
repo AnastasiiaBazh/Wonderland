@@ -7,20 +7,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 public class OptionsActivity extends AppCompatActivity {
 
     RecyclerView recycler;
-    private List<Option> someOptions = Arrays.asList(
-            new Option("Ахуительная рулетка!!"),
-            new Option("Рулетка богов просто!"),
-            new Option("Ультра нано S3000 гипер рулетка!"),
-            new Option("Мама сказала, что ей нравится"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ArrayList<Option> options = getIntent().getParcelableArrayListExtra("option");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getColor(R.color.primary)));
@@ -28,7 +24,7 @@ public class OptionsActivity extends AppCompatActivity {
 
         recycler = findViewById(R.id.recycler);
 
-        OptionsAdapter adapter = new OptionsAdapter(someOptions);
+        OptionsAdapter adapter = new OptionsAdapter(options);
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
     }

@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,7 +18,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView buttonGenerate;
     private TextView optionsButton;
     private TextView result;
-    private final String[] someOptions = {"Ахуительная рулетка!!", "Рулетка богов просто!", "Ультра нано S3000 гипер рулетка!", "Мама сказала, что ей нравится"};
+    private final List<Option> someOptionsList = Arrays.asList(
+            new Option("Ахуительная рулетка!!"),
+            new Option("Рулетка богов просто!"),
+            new Option("Ультра нано S3000 гипер рулетка!"),
+            new Option("Мама сказала, что ей нравится"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +53,15 @@ public class MainActivity extends AppCompatActivity {
 
     private String random() {
         Random rand = new Random();
-        int i = rand.nextInt(someOptions.length);
-        return someOptions[i];
+        int i = rand.nextInt(someOptionsList.size());
+        return someOptionsList.get(i).getOption();
     }
 
     public void openNewActivity() {
         Intent intent = new Intent(this, OptionsActivity.class);
+
+        ArrayList<Option> array = new ArrayList<>(someOptionsList);
+        intent.putExtra("option", array);
         startActivity(intent);
     }
 }
