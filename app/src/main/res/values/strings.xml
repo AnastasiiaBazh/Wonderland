@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Wonderland</string>
     <string name="logo">Amazing app</string>
-    <string name="button_name">Крутить</string>
+    <string name="button_spin_name">Крутить</string>
+    <string name="button_save_name">Сохранить</string>
     <string name="options_button">Изменить варианты</string>
     <string name="options_name">Варианты</string>
 
