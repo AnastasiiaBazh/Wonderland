@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView buttonGenerate;
     private TextView optionsButton;
     private TextView result;
-    private final List<Option> someOptionsList = Arrays.asList(
+    private List<Option> someOptionsList = Arrays.asList(
             new Option("Ахуительная рулетка!!"),
             new Option("Рулетка богов просто!"),
             new Option("Ультра нано S3000 гипер рулетка!"),
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //noinspection DataFlowIssue
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getColor(R.color.primary)));
 
         buttonGenerate = findViewById(R.id.buttonGenerate);
@@ -62,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Option> array = new ArrayList<>(someOptionsList);
         intent.putExtra("option", array);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data == null) {
+            return;
+        }
+        ArrayList<Option> option = data.getParcelableArrayListExtra("option");
+        someOptionsList = option;
     }
 }
